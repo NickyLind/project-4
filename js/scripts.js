@@ -10,3 +10,88 @@
 // loop through these arrays to add dollar values each time a topping in each tier is selected
 // I will create an if statement for pizza sizes that adds or subtracts from a 'medium' pizza for 
 // different sizes
+
+// Business logic for Database
+function Database() {
+  this.orders = {}
+  this.currentOrderId = 0;
+}
+let newDatabase = new Database;
+Database.prototype.addOrder = function (order) {
+  order.id = this.assignOrderId();
+  this.orders[order.id] = order;
+}
+
+Database.prototype.assignOrderId = function () {
+  this.currentOrderId += 1
+  return this.currentOrderId;
+}
+
+Database.prototype.findOrder = function (id) {
+  if (this.orders[id] != undefined) {
+    return this.orders[id]
+  }
+  return false;
+}
+
+// Business logic for Order
+function Order(name) {
+  this.name = name;
+  this.pizzas = {};
+}
+// let newOrder = new Order;
+// newDatabase.addOrder(newOrder);
+Order.prototype.addPizza = function (pizza) {
+  this.pizzas[pizza.type] = pizza;
+}
+
+// Business logic for Pizza
+function Pizza(type, size, toppings, price) {
+  this.type = type;
+  this.size = size;
+  this.toppings = toppings;
+  this.price = price;
+}
+
+let tierOneToppings = ["garlic", "banana peppers", "jalapeno peppers", "spinach", "olives", "onions", "green peppers", "pineapple", "basil"];
+let tierTwoToppings = ["anchovies", "pepperoni", "canadian bacon", "sausage", "chicken"];
+let pizzaType = ["Cheese", "Deluxe", "Pepperoni", "Chicken", "Margherita"];
+let pizzaSize = ["Small", "Medium", "Large"];
+
+Pizza.prototype.sizePrice = function() {
+  this.price = 7.00;
+  if (this.size === "Large")  {
+    this.price += 2.00;
+  } else if (this.size === "Small") {
+    this.price -= 1.00;
+  } else {
+    return this.price
+  }
+}
+totalToppings = []
+Pizza.prototype.tierOnePrice = function ()  {
+  tierOneToppings.forEach(function() {
+    this.price += 1
+  })
+  }
+
+
+// newPizza = new Pizza ("Cheese", "Large", ["garlic", "spinach", "olives"]);
+// newPizza.sizePrice();
+// console.log(newPizza);
+// newPizza.tierOnePrice();
+// console.log(newPizza);
+
+// UI logic
+$(document).ready(function()  {
+  $("#nameOrder").submit(function(event)  {
+    event.preventDefault();
+    orderName = $("#orderName").val();
+    $("#nameOrder").hide();
+    let newOrder = new Order (orderName)
+    newDatabase.addOrder(newOrder)
+  })
+  $("").submit(function(event)  {
+    event.preventDefault();
+  })
+})
