@@ -39,8 +39,7 @@ function Order(name) {
   this.name = name;
   this.pizzas = {};
 }
-// let newOrder = new Order;
-// newDatabase.addOrder(newOrder);
+
 Order.prototype.addPizza = function (pizza) {
   this.pizzas[pizza.type] = pizza;
 }
@@ -49,16 +48,9 @@ Order.prototype.addPizza = function (pizza) {
 function Pizza(type, size, toppings, price) {
   this.type = type;
   this.size = size;
-  this.toppings = toppings;
+  this.xtraToppings = toppings;
   this.price = price;
 }
-
-let selectedToppings = ["garlic", "bananaPeppers", "jalapenoPeppers", "spinach", "olives", "onions", "greenPeppers", "pineapple", "basil", "tomato", "anchovies", "pepperoni", "canadianBacon", "sausage", "chicken"];
-let pizzaType = ["Cheese", "Deluxe", "Pepperoni", "Chicken", "Margherita"];
-let pizzaSize = ["Small", "Medium", "Large"];
-
-
-
 
 Pizza.prototype.Price = function() {
   this.price = 7.00;
@@ -69,7 +61,20 @@ Pizza.prototype.Price = function() {
   } else {
     return this.price
   }
-  if ()
+  if (this.type === "Deluxe" || this.type === "Chicken")  {
+    this.price += 2.00;
+  } else if (this.type === "Pepperoni") {
+    this.price += 1.00;
+  } else  {
+    return this.price
+  }
+  if (this.xtraToppings === "XtraChz" || this.xtraToppings === "XtraSauce" || this.xtraToppings === "XtraVeg")  {
+    this.price += 2.00;
+  } else if (this.xtraToppings === "XtraMeat")  {
+    this.price += 3.00;
+  } else  {
+    return this.price
+  }
 };
 
 
@@ -90,12 +95,12 @@ $(document).ready(function()  {
   $("#pizzaOrder").submit(function(event)  {
     event.preventDefault();
     inputtedSize = $("#pizzaSize").val();
-    
-    let newPizza = new Pizza("cheese", inputtedSize)
+    inputtedType = $("#pizzaType").val(); 
+    inputtedToppings = $("#pizzaToppings").val();
+    let newPizza = new Pizza(inputtedType, inputtedSize, inputtedToppings)
     newPizza.Price();
     console.log(newPizza)
-    let newOrder = new Order
-    newOrder.addPizza(orderName);
+    
     
   })
 });

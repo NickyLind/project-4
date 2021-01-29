@@ -22,28 +22,28 @@
       <div class="col-md-6">
         <form id="pizzaOrder">
           <h4>Select a Size:</h4>
-          <select class="pizzaSize" id="pizzaSize">
+          <select class="pizzaSize" id="pizzaSize" required="true">
             <option></option>
             <option value="Small">Small (8")</option>
-            <option>Medium (12")</option>
+            <option>Medium (12)</option>
             <option value="Large">Large (14")</option>
           </select>
           <h4>Select a Type:</h4>
-          <select class="pizzaType">
+          <select class="pizzaType" id="pizzaType" required="true">
             <option></option>
-            <option>EZPZ Pizza (Cheese)</option>
-            <option>Deluxe (Pepperoni, Sausage, Canadian Bacon, Onion, Green Pepper, Olives)</option>
-            <option>Pepperoni</option>
-            <option>Chicken (Chicken, Tomato, Basil, Banana Peppers)</option>
-            <option>Margherita</option>
+            <option value="Cheese">EZPZ Pizza (Cheese)</option>
+            <option value="Deluxe">Deluxe (Pepperoni, Sausage, Canadian Bacon, Onion, Green Pepper, Olives)</option>
+            <option value="Pepperoni">Pepperoni</option>
+            <option value="Chicken">Chicken (Chicken, Tomato, Basil, Banana Peppers)</option>
+            <option value="Margherita">Margherita</option>
           </select>
           <h4>Select Extra Toppings</h4>
-            <select class="pizzaToppings">
+            <select class="pizzaToppings" id="pizzaToppings">
               <option></option>
-              <option>Extra Cheese</option>
-              <option>Extra Meat</option>
-              <option>Extra Veggies</option>
-              <option>Extra Sauce</option>
+              <option value="XtraChz">Extra Cheese</option>
+              <option value="XtraMeat">Extra Meat</option>
+              <option value="XtraVeg">Extra Veggies</option>
+              <option value="XtraSauce">Extra Sauce</option>
             </select>
             <button type="submit" id="button" class="btn btn-danger">Submit</button>
           </div>
