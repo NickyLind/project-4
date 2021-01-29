@@ -38,6 +38,7 @@ Database.prototype.findOrder = function (id) {
 function Order(name) {
   this.name = name;
   this.pizzas = {};
+  this.pizzaId = 0;
 }
 
 Order.prototype.addPizza = function (pizza) {
@@ -45,6 +46,10 @@ Order.prototype.addPizza = function (pizza) {
   this.pizzas[pizza.id] = pizza;
 }
 
+Order.prototype.assignPizzaId = function () {
+  this.pizzaId += 1;
+  return this.pizzaId;
+}
 
 // Business logic for Pizza
 function Pizza(type, size, toppings, price) {
@@ -110,7 +115,8 @@ $(document).ready(function()  {
     $("#receipt").show();
     $(".receiptName").text("Name: " + newDatabase.orders[newDatabase.currentOrderId].name)
     // totalprice = newDatabase.orders[newDatabase.currentOrderId].pizzas[inputtedType]
-    $(".receiptPizzas").text("Pizzas: " + newDatabase.orders[newDatabase.currentOrderId].pizzas[inputtedType])
+    str = JSON.stringify(newDatabase.orders[newDatabase.currentOrderId])
+    $(".receiptPizzas").text(str)
     
     
   })
