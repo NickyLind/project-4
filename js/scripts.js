@@ -56,21 +56,20 @@ Pizza.prototype.Price = function() {
   this.price = 7.00;
   if (this.size === "Large")  {
     this.price += 2.00;
-  } else if (this.size === "Small") {
+  }
+  if (this.size === "Small") {
     this.price -= 1.00;
-  } else {
-    return this.price
   }
   if (this.type === "Deluxe" || this.type === "Chicken")  {
     this.price += 2.00;
-  } else if (this.type === "Pepperoni") {
+  } 
+  if (this.type === "Pepperoni") {
     this.price += 1.00;
-  } else  {
-    return this.price
-  }
+  }  
   if (this.xtraToppings === "XtraChz" || this.xtraToppings === "XtraSauce" || this.xtraToppings === "XtraVeg")  {
     this.price += 2.00;
-  } else if (this.xtraToppings === "XtraMeat")  {
+  }
+  if (this.xtraToppings === "XtraMeat")  {
     this.price += 3.00;
   } else  {
     return this.price
@@ -81,7 +80,6 @@ Pizza.prototype.Price = function() {
 
 // UI logic
 let newDatabase = new Database;
-let newPizza = new Pizza()
 $(document).ready(function()  {
   $("#nameOrder").submit(function(event)  {
     event.preventDefault();
@@ -89,6 +87,7 @@ $(document).ready(function()  {
     $("#nameOrder").hide();
     let newOrder = new Order (orderName)
     newDatabase.addOrder(newOrder)
+    console.log(newDatabase)
   })
 
 
@@ -99,7 +98,9 @@ $(document).ready(function()  {
     inputtedToppings = $("#pizzaToppings").val();
     let newPizza = new Pizza(inputtedType, inputtedSize, inputtedToppings)
     newPizza.Price();
+    newDatabase.orders[1].addPizza(newPizza)
     console.log(newPizza)
+    console.log(newDatabase.orders[1])
     
     
   })
