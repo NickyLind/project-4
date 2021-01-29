@@ -41,8 +41,10 @@ function Order(name) {
 }
 
 Order.prototype.addPizza = function (pizza) {
-  this.pizzas[pizza.type] = pizza;
+  pizza.id = this.assignPizzaId
+  this.pizzas[pizza.id] = pizza;
 }
+
 
 // Business logic for Pizza
 function Pizza(type, size, toppings, price) {
@@ -76,8 +78,6 @@ Pizza.prototype.Price = function() {
   }
 };
 
-
-
 // UI logic
 let newDatabase = new Database;
 $(document).ready(function()  {
@@ -85,22 +85,32 @@ $(document).ready(function()  {
     event.preventDefault();
     orderName = $("#orderName").val();
     $("#nameOrder").hide();
+    $("#pizzaOrder").show();
+    $("#showOrder").show();
     let newOrder = new Order (orderName)
     newDatabase.addOrder(newOrder)
     console.log(newDatabase)
   })
-
 
   $("#pizzaOrder").submit(function(event)  {
     event.preventDefault();
     inputtedSize = $("#pizzaSize").val();
     inputtedType = $("#pizzaType").val(); 
     inputtedToppings = $("#pizzaToppings").val();
+    $("#pizzaOrder")[0].reset();
     let newPizza = new Pizza(inputtedType, inputtedSize, inputtedToppings)
     newPizza.Price();
     newDatabase.orders[1].addPizza(newPizza)
     console.log(newPizza)
     console.log(newDatabase.orders[1])
+  })
+
+  $("#showOrder").submit(function(event) {
+    event.preventDefault();
+    $("#receipt").show();
+    $(".receiptName").text("Name: " + newDatabase.orders[newDatabase.currentOrderId].name)
+    // totalprice = newDatabase.orders[newDatabase.currentOrderId].pizzas[inputtedType]
+    $(".receiptPizzas").text("Pizzas: " + newDatabase.orders[newDatabase.currentOrderId].pizzas[inputtedType])
     
     
   })

@@ -1,0 +1,20 @@
+#pizzaOrder {
+  display: none;
+}
+
+#button {
+  width: 300px;
+  margin-left: 15px;
+}
+
+#receipt  {
+  display: none;
+}
+
+#showOrder  {
+  display: none;
+}
+
+select  {
+  width: 500px;
+}
