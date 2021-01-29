@@ -5,19 +5,73 @@
 <link rel="stylesheet" href="css/styles.css" type="text/css">
 <script src="js/jquery-3.5.1.js"></script>
 <script src="js/scripts.js"></script>
-  <title>Pizza Cake's</title>
+  <title>Pizza-Cake's</title>
 </head>
 
 <body>
   <div class="container">
-    <h1>Pizza Cake's Pizzeria</h1>
+    <h1>Pizza-Cake's Pizzeria</h1>
     <div class="row">
       <div class="col-md-6">
-      <form id="nameOrder">
-        <label for="orderName">Enter a name for your Order</label>
-        <input id="orderName" class="form-control" type="text" required="true">
-        <button type="submit" id="button" class="btn btn-danger">Submit</button>
-      </form>
+        <form id="nameOrder">
+          <label for="orderName">Enter a name for your Order</label>
+          <input id="orderName" class="form-control" type="text" required="true">
+          <button type="submit" id="button" class="btn btn-danger">Submit</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <form id="pizzaOrder">
+          <h4>Select a Size:</h4>
+          <select class="pizzaSize">
+            <option></option>
+            <option>Small (8")</option>
+            <option>Medium (12")</option>
+            <option>Large (14")</option>
+          </select>
+          <h4>Select a Type:</h4>
+          <select class="pizzaType">
+            <option></option>
+            <option>EZPZ Pizza (Cheese)</option>
+            <option>Deluxe (Pepperoni, Sausage, Canadian Bacon, Onion, Green Pepper, Olives)</option>
+            <option>Pepperoni</option>
+            <option>Chicken (Chicken, Tomato, Basil, Banana Peppers)</option>
+            <option>Margherita</option>
+          </select>
+          <h4>Select additional toppings</h4>
+          <div class="container">
+            <input type="checkbox" id="garlic" value="1">
+            <label for="garlic">Garlic</label><br>
+            <input type="checkbox" id="bananaPeppers" value="1">
+            <label for="bananaPeppers">Banana Peppers</label><br>
+            <input type="checkbox" id="jalapenoPeppers" value="1">
+            <label for="jalapenoPeppers">Jalapeno Peppers</label><br>
+            <input type="checkbox" id="spinach" value="1">
+            <label for="spinach">Spinach</label><br>
+            <input type="checkbox" id="olives" value="1">
+            <label for="olives">Olives</label><br>
+            <input type="checkbox" id="onions" value="1">
+            <label for="onions">Onions</label><br>
+            <input type="checkbox" id="greenPeppers" value="1">
+            <label for="greenPeppers">Green Peppers</label><br>
+            <input type="checkbox" id="pineapple" value="1">
+            <label for="pineapple">Pineapple</label><br>
+            <input type="checkbox" id="basil" value="1">
+            <label for="basil">Basil</label><br>
+            <input type="checkbox" id="tomato" value="1">
+            <label for="tomato">Tomato</label><br>
+            <input type="checkbox" id="anchovies" value="2">
+            <label for="anchovies">Anchovies</label><br>
+            <input type="checkbox" id="pepperoni" value="2">
+            <label for="pepperoni">Pepperoni</label><br>
+            <input type="checkbox" id="canadianBacon" value="2">
+            <label for="canadianBacon">Canadian Bacon</label><br>
+            <input type="checkbox" id="sausage" value="2">
+            <label for="sausage">Sausage</label><br>
+            <input type="checkbox" id="chicken" value="2">
+            <label for="chicken">Chicken</label>
+          </div>
+          <button type="submit" id="button" class="btn btn-danger">Submit</button>
+        </form>
       </div>
     </div>
   </div>

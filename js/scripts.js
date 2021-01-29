@@ -53,10 +53,12 @@ function Pizza(type, size, toppings, price) {
   this.price = price;
 }
 
-let tierOneToppings = ["garlic", "banana peppers", "jalapeno peppers", "spinach", "olives", "onions", "green peppers", "pineapple", "basil"];
-let tierTwoToppings = ["anchovies", "pepperoni", "canadian bacon", "sausage", "chicken"];
+let selectedToppings = ["garlic", "bananaPeppers", "jalapenoPeppers", "spinach", "olives", "onions", "greenPeppers", "pineapple", "basil", "tomato", "anchovies", "pepperoni", "canadianBacon", "sausage", "chicken"];
 let pizzaType = ["Cheese", "Deluxe", "Pepperoni", "Chicken", "Margherita"];
 let pizzaSize = ["Small", "Medium", "Large"];
+
+
+
 
 Pizza.prototype.sizePrice = function() {
   this.price = 7.00;
@@ -68,12 +70,7 @@ Pizza.prototype.sizePrice = function() {
     return this.price
   }
 }
-totalToppings = []
-Pizza.prototype.tierOnePrice = function ()  {
-  tierOneToppings.forEach(function() {
-    this.price += 1
-  })
-  }
+
 
 
 // newPizza = new Pizza ("Cheese", "Large", ["garlic", "spinach", "olives"]);
@@ -91,7 +88,15 @@ $(document).ready(function()  {
     let newOrder = new Order (orderName)
     newDatabase.addOrder(newOrder)
   })
-  $("").submit(function(event)  {
+  $("#pizzaOrder").submit(function(event)  {
     event.preventDefault();
+
+    let totalToppings = []
+
+    selectedToppings.forEach(function(element)  {
+    totalToppings.push($("#" + element).val())
+});
+    console.log(totalToppings);
+
   })
 })
