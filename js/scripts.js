@@ -92,11 +92,14 @@ $(document).ready(function()  {
     event.preventDefault();
 
     let totalToppings = []
-
+    
+    
     selectedToppings.forEach(function(element)  {
     totalToppings.push($("#" + element).val())
 });
     console.log(totalToppings);
-
+    let parseTopping = totalToppings.map(Number)
+    
+    console.log(parseTopping)
   })
 })
