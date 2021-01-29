@@ -16,7 +16,7 @@ function Database() {
   this.orders = {}
   this.currentOrderId = 0;
 }
-let newDatabase = new Database;
+
 Database.prototype.addOrder = function (order) {
   order.id = this.assignOrderId();
   this.orders[order.id] = order;
@@ -60,7 +60,7 @@ let pizzaSize = ["Small", "Medium", "Large"];
 
 
 
-Pizza.prototype.sizePrice = function() {
+Pizza.prototype.Price = function() {
   this.price = 7.00;
   if (this.size === "Large")  {
     this.price += 2.00;
@@ -69,17 +69,14 @@ Pizza.prototype.sizePrice = function() {
   } else {
     return this.price
   }
-}
+  if ()
+};
 
 
-
-// newPizza = new Pizza ("Cheese", "Large", ["garlic", "spinach", "olives"]);
-// newPizza.sizePrice();
-// console.log(newPizza);
-// newPizza.tierOnePrice();
-// console.log(newPizza);
 
 // UI logic
+let newDatabase = new Database;
+let newPizza = new Pizza()
 $(document).ready(function()  {
   $("#nameOrder").submit(function(event)  {
     event.preventDefault();
@@ -88,22 +85,18 @@ $(document).ready(function()  {
     let newOrder = new Order (orderName)
     newDatabase.addOrder(newOrder)
   })
+
+
   $("#pizzaOrder").submit(function(event)  {
     event.preventDefault();
-
-    let totalToppings = []
+    inputtedSize = $("#pizzaSize").val();
     
+    let newPizza = new Pizza("cheese", inputtedSize)
+    newPizza.Price();
+    console.log(newPizza)
+    let newOrder = new Order
+    newOrder.addPizza(orderName);
     
-    selectedToppings.forEach(function(element)  {
-    totalToppings.push($("#" + element + ":checked").val())
-    
-    
-  
-});
-    console.log(totalToppings);
-    let parseTopping = totalToppings.filter(Boolean).map(Number)
-    
-    console.log(parseTopping)
-    console.log(parseTopping.reduce((a, b) => a + b, 0))
   })
-})
+});
+
