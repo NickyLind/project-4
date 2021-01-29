@@ -95,11 +95,15 @@ $(document).ready(function()  {
     
     
     selectedToppings.forEach(function(element)  {
-    totalToppings.push($("#" + element).val())
+    totalToppings.push($("#" + element + ":checked").val())
+    
+    
+  
 });
     console.log(totalToppings);
-    let parseTopping = totalToppings.map(Number)
+    let parseTopping = totalToppings.filter(Boolean).map(Number)
     
     console.log(parseTopping)
+    console.log(parseTopping.reduce((a, b) => a + b, 0))
   })
 })
