@@ -17,6 +17,38 @@
 
 _This application will work like a pizza delivery website. It will allow the user to select a pizza with various toppings and sizes and return the price for the pizza after any additional toppings are included_
 
+## Specs
+```
+Describe: Database();
+
+Test: "It holds orders with IDs"
+Expect: (Database(this.order, this.ID)).toEqual("newOrder" ID:1)
+
+Describe: addOrder();
+
+Test: "It will add an order to Database() with a name and ID
+Expect: (addOrder()).toEqual("Name: Joe Guy, ID: 1")
+
+Describe: Order();
+
+Test: "It holds pizza objects"
+Expect: (Order(this.pizza)).toEqual("Cheese Pizza", "Deluxe Pizza")
+
+Describe addPizza();
+
+Test: "It adds pizzas to Order object"
+Expect: (addPizza()).toEqual("newOrder: "Cheese Pizza"")
+
+Describe: Pizza();
+
+Test: "It holds topping keys and values"
+Expect: (Pizza(toppings)).toEqual("Toppings: Garlic, Spinach, Tomato")
+
+Test: "It holds size key and values"
+Expect: (Pizza(size)).toEqual("Large")
+
+```
+
 ## Setup/Installation Requirements
 
 * _Find the resposiotory at (https://github.com/NickyLind/project-4)_
