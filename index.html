@@ -7,7 +7,6 @@
 <script src="js/scripts.js"></script>
   <title>Pizza-Cake's</title>
 </head>
-
 <body>
   <div class="container">
     <h1>Pizza-Cake's Pizzeria</h1>
@@ -23,26 +22,26 @@
         <h4>Select a Size:</h4>
         <select class="pizzaSize" id="pizzaSize" required="true">
           <option></option>
-          <option value="Small">Small (8")</option>
-          <option>Medium (12)</option>
-          <option value="Large">Large (14")</option>
+          <option value="Small">Small (8") $6.00</option>
+          <option>Medium (12) $7.00</option>
+          <option value="Large">Large (14") $9.00</option>
         </select>
         <h4>Select a Type:</h4>
         <select class="pizzaType" id="pizzaType" required="true">
           <option></option>
           <option value="Cheese">EZPZ Pizza (Cheese)</option>
-          <option value="Deluxe">Deluxe (Pepperoni, Sausage, Canadian Bacon, Onion, Green Pepper, Olives)</option>
-          <option value="Pepperoni">Pepperoni</option>
-          <option value="Chicken">Chicken (Chicken, Tomato, Basil, Banana Peppers)</option>
+          <option value="Deluxe">Deluxe (Pepperoni, Sausage, Canadian Bacon, Onion, Green Pepper, Olives) + $2.00</option>
+          <option value="Pepperoni">Pepperoni +$1.00</option>
+          <option value="Chicken">Chicken (Chicken, Tomato, Basil, Banana Peppers) +$2.00</option>
           <option value="Margherita">Margherita</option>
         </select>
         <h4>Select Extra Toppings</h4>
         <select class="pizzaToppings" id="pizzaToppings">
           <option></option>
-          <option value="XtraChz">Extra Cheese</option>
-          <option value="XtraMeat">Extra Meat</option>
-          <option value="XtraVeg">Extra Veggies</option>
-          <option value="XtraSauce">Extra Sauce</option>
+          <option value="XtraChz">Extra Cheese +$2.00</option>
+          <option value="XtraMeat">Extra Meat +$3.00</option>
+          <option value="XtraVeg">Extra Veggies +$2.00</option>
+          <option value="XtraSauce">Extra Sauce +$2.00</option>
         </select>
       <div class="row">
         <button type="submit" id="button" class="btn btn-danger">Add Pizza to Order</button>
@@ -50,7 +49,12 @@
     </div>
     <div class="col-md-6" id="receipt">
       <h2>Here is your Pizza Cost</h2>
-      <span class="receiptPrice"></span>
+      <div class="row">
+        <span class="receiptName"></span>
+      </div>
+      <div class="row">
+        <span class="receiptPrice"></span>
+      </div>
     </div>
   </div>
 </body>
