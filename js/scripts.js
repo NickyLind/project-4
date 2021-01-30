@@ -27,30 +27,23 @@ Database.prototype.assignOrderId = function () {
   return this.currentOrderId;
 }
 
-Database.prototype.findOrder = function (id) {
-  if (this.orders[id] != undefined) {
-    return this.orders[id]
-  }
-  return false;
-}
 
 // Business logic for Order
 function Order(name) {
   this.name = name;
   this.pizzas = {};
-  this.pizzaId = 0;
+  this.currentPizzaId = 0
 }
 
 Order.prototype.addPizza = function (pizza) {
-  pizza.id = this.assignPizzaId
+  pizza.id = this.assignPizzaId();
   this.pizzas[pizza.id] = pizza;
 }
 
-Order.prototype.assignPizzaId = function () {
-  this.pizzaId += 1;
-  return this.pizzaId;
+Order.prototype.assignPizzaId = function()  {
+  this.currentPizzaId +=1
+  return this.currentPizzaId;
 }
-
 // Business logic for Pizza
 function Pizza(type, size, toppings, price) {
   this.type = type;
@@ -91,10 +84,8 @@ $(document).ready(function()  {
     orderName = $("#orderName").val();
     $("#nameOrder").hide();
     $("#pizzaOrder").show();
-    $("#showOrder").show();
     let newOrder = new Order (orderName)
     newDatabase.addOrder(newOrder)
-    console.log(newDatabase)
   })
 
   $("#pizzaOrder").submit(function(event)  {
@@ -105,20 +96,11 @@ $(document).ready(function()  {
     $("#pizzaOrder")[0].reset();
     let newPizza = new Pizza(inputtedType, inputtedSize, inputtedToppings)
     newPizza.Price();
-    newDatabase.orders[1].addPizza(newPizza)
-    console.log(newPizza)
-    console.log(newDatabase.orders[1])
-  })
-
-  $("#showOrder").submit(function(event) {
-    event.preventDefault();
+    newDatabase.orders[1].addPizza(newPizza) 
+    $("#pizzaOrder").hide(); 
+    $("#showOrder").show(); 
     $("#receipt").show();
-    $(".receiptName").text("Name: " + newDatabase.orders[newDatabase.currentOrderId].name)
-    // totalprice = newDatabase.orders[newDatabase.currentOrderId].pizzas[inputtedType]
-    str = JSON.stringify(newDatabase.orders[newDatabase.currentOrderId])
-    $(".receiptPizzas").text(str)
-    
-    
+    $(".receiptPrice").text("$" + newDatabase.orders[1].pizzas[1].price) 
   })
 });
 
