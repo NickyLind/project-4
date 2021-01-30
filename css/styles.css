@@ -1,7 +1,13 @@
 #pizzaOrder {
   display: none;
 }
-
+body, head{
+  background-image: url("https://www.carmelosmarketplace.com/wp-content/uploads/2019/07/carmelos-pizzeria-inside.jpg");
+  background-position: fixed;
+  background-size: cover;
+  color: rgb(255, 255, 255);
+  background-repeat: no-repeat;
+}
 #button {
   width: 300px;
   margin-left: 15px;

@@ -1,5 +1,3 @@
-// first I will create a database-like object called 'Database' that holds objects called orders,
-//and IDs so that i can go back and pick out orders by their IDs. Next I will create an object called 
 // Business logic for Database
 function Database() {
   this.orders = {}
