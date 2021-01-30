@@ -13,8 +13,6 @@ Database.prototype.assignOrderId = function () {
   this.currentOrderId += 1
   return this.currentOrderId;
 }
-
-
 // Business logic for Order
 function Order(name) {
   this.name = name;
